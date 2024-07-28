@@ -119,7 +119,8 @@
         "mkdir -p {{user `working_dir`}}/rootfs",
         "mkdir -p {{user `working_dir`}}/shared",
         "mkdir -p {{user `working_dir`}}/log-collector-script",
-        "mkdir -p {{user `working_dir`}}/nodeadm"
+        "mkdir -p {{user `working_dir`}}/nodeadm",
+	"mkdir -p {{user `working_dir`}}/custom-ami-scripts"
       ]
     },
     {
@@ -148,6 +149,25 @@
       "type": "file",
       "source": "{{template_dir}}/../../nodeadm/",
       "destination": "{{user `working_dir`}}/nodeadm"
+    },
+    {
+      "type": "file",
+      "source": "{{template_dir}}/../../custom-ami-scripts/",
+      "destination": "{{user `working_dir`}}/custom-ami-scripts/"
+    },
+    {
+      "type": "shell",
+      "inline": [
+	"sudo mkdir -p /etc/custom-ami-scripts/",
+	"sudo cp -v {{user `working_dir`}}/custom-ami-scripts/ami-build-script.sh /etc/custom-ami-scripts/",
+        "sudo cp -v {{user `working_dir`}}/custom-ami-scripts/runtime-userdata-script.sh /etc/custom-ami-scripts/",
+	"sudo cp -v {{user `working_dir`}}/custom-ami-scripts/dpdk-devbind.py /etc/custom-ami-scripts/"
+      ]
+    },
+    {
+      "type": "shell",
+      "remote_folder": "{{ user `remote_folder`}}",
+      "script": "{{template_dir}}/../../custom-ami-scripts/ami-build-script.sh"
     },
     {
       "type": "shell",
