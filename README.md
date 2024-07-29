@@ -1,5 +1,7 @@
 # Amazon EKS AMI Build Specification
 
+Source: https://github.com/awslabs/amazon-eks-ami
+
 This repository contains resources and configuration scripts for building a
 custom Amazon EKS AMI with [HashiCorp Packer](https://www.packer.io/). This is
 the same configuration that Amazon EKS uses to create the official Amazon
