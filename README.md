@@ -46,6 +46,12 @@ make k8s=1.29 os_distro=al2023
 
 # check default value and options in help doc
 make help
+
+# Graviton AMI build for K8S 1.29 and AL2023
+make k8s=1.29 os_distro=al2023 arch=arm64
+
+# X86 AMI build for K8S 1.29 and AL2023
+make k8s=1.29 os_distro=al2023
 ```
 
 The Makefile chooses a particular kubelet binary to use per Kubernetes version which you can [view here](Makefile).
