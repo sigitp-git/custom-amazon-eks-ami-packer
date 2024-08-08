@@ -83,7 +83,31 @@
         "source_ami_id": "ami-0eddfbd97bbe93ea7",
         "source_ami_name": "al2023-ami-minimal-2023.5.20240805.0-kernel-6.1-x86_64"
       }
+    },
+    {
+      "name": "amazon-ebs",
+      "builder_type": "amazon-ebs",
+      "build_time": 1723073108,
+      "files": null,
+      "artifact_id": "us-east-1:ami-07970c158751d40d6",
+      "packer_run_uuid": "3fb72a0b-6812-665b-d657-76d87a1623d7",
+      "custom_data": {
+        "source_ami_id": "ami-0e2b509a3697558f9",
+        "source_ami_name": "al2023-ami-minimal-2023.5.20240805.0-kernel-6.1-arm64"
+      }
+    },
+    {
+      "name": "amazon-ebs",
+      "builder_type": "amazon-ebs",
+      "build_time": 1723083016,
+      "files": null,
+      "artifact_id": "us-east-1:ami-0b38d113cad7ccee0",
+      "packer_run_uuid": "b52cd81d-6182-90ba-7585-6b8a6db14496",
+      "custom_data": {
+        "source_ami_id": "ami-0eddfbd97bbe93ea7",
+        "source_ami_name": "al2023-ami-minimal-2023.5.20240805.0-kernel-6.1-x86_64"
+      }
     }
   ],
-  "last_run_uuid": "539ea220-8194-9829-3ae8-5a3a712a088f"
+  "last_run_uuid": "b52cd81d-6182-90ba-7585-6b8a6db14496"
 }
