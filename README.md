@@ -60,6 +60,9 @@ The Makefile chooses a particular kubelet binary to use per Kubernetes version w
 > The default instance type to build this AMI does not qualify for the AWS free tier.
 > You are charged for any instances created when building this AMI.
 
+## DPDK device binding
+This script: `https://github.com/sigitp-git/custom-amazon-eks-ami-packer/blob/main/custom-ami-scripts/dpdk-devbind.py` source is `https://raw.githubusercontent.com/DPDK/dpdk/main/usertools/dpdk-devbind.py`. It will be used on CloudFormation template to bind certain PCI NIC address to `vfio-pci` driver instead of the defaul ENA driver. This PCI NIC then will be used for DPDK interface. The AMI will only need `modprobe vfio-pci` and `echo 1 > /sys/module/vfio/parameters/enable_unsafe_noiommu_mode`. No other ENA DPDK driver required since `vfio-pci` is alredy included in the AMI kernel (Amazon Linux 2023, Kernel 6.1). Note that once the PCI NIC bound to `vfio-pci` driver, you won't see that NIC with Linux commands such as `ifconfig`, but you can still see the PCI address. You can use this PCI address to create your CNI configuration (host-device CNI for example).
+
 ## 🔒 Security
 
 For security issues or concerns, please do not open an issue or pull request on GitHub. Please report any suspected or confirmed security issues to AWS Security https://aws.amazon.com/security/vulnerability-reporting/
