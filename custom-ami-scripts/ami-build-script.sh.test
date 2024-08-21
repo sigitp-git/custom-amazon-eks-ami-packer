@@ -10,6 +10,15 @@ sudo yum install kernel -y
 sudo yum install -y kernel-devel-$(uname -r)
 sudo yum install kernel-headers -y
 sudo yum install python3-pip -y
+pip3 install meson ninja pyelftools
+git clone git://dpdk.org/dpdk-stable
+cd dpdk-stable
+git checkout v19.11.10
+meson build
+echo "Executing ninja -C build"
+ninja -C build
+echo "End of ninja -C build, need further validation, first try: ami-0a74d8415f0a81b06"
+cd ..
 git clone https://github.com/MarvellEmbeddedProcessors/pcie_ep_octeon_host.git
 cd pcie_ep_octeon_host/
 make
